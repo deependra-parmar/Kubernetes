@@ -1,0 +1,66 @@
+Pod is responsible for running the main workload in it in the form of containers.
+We can create pod using two ways
+
+1. Imperative using commands: kubectl run nginx --flags
+2. Declarative using pod.yaml: kubectl apply -f pod.xml
+
+--------------
+
+Imperative way of creating an nginx pod: 
+
+    kubectl run nginx-pod --image=nginx:latest
+
+--------------
+
+Declarative way for creating an nginx pod
+
+    kubectl apply -f pod.yaml
+    
+--------------
+
+For deleting a running pod, 
+
+    kubectl delete pod <pod_name>
+
+--------------
+
+For troubleshooting a pod and get all description, use
+
+    kubectl describe pod <pod_name>
+
+--------------
+
+For editing the pod, (changes are made in internal config of running pod and will not edit the pod.yaml)
+
+    kubectl edit pod <pod_name>
+
+---------------
+
+Getting inside a pod,
+
+    kubectl exec -it nginx -- sh
+
+---------------
+
+How to create you own yaml: Write an imperative command for this and get the configuration in a yaml file.
+
+    # gives yaml config on terminal
+    kubectl run nginx-pod2 --image=nginx:latest --dry-run=client -o yaml 
+
+    # Provides config yaml in the new pod_new.yaml file
+    kubectl run nginx-pod2 --image=nginx:latest --dry-run=client -o yaml > pod_new.yaml
+
+---------------
+
+Commands for pods: 
+
+    kubectl get pods
+    kubectl get pod nginx
+    kubectl describe pod <pod_name>
+    kubectl get pods nginx --show-labels
+
+    for getting all details with node, the pod is running on
+
+        kubectl get pods -o wide
+
+-----------------

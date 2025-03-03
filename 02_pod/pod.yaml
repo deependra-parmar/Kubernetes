@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: nginx
+  labels: # labels to be selected by services later
+    app: nginx
+    env: demo
+    type: frontend
+    role: reverse-proxy
+spec: 
+  containers: 
+  - name: nginx
+    image: nginx:latest
+    ports: 
+      - containerPort: 80
