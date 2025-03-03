@@ -1,0 +1,22 @@
+Creating a kubernetes cluster using kind and creates the control plane for the cluster.
+
+    kind create cluster --image <image_name_kubernetes> --name <name_of_the_cluster>
+
+----------
+
+Deleting a cluster
+
+    kind delete cluster
+
+---------
+
+Creating a cluster with multi-node support using cluster.yaml
+
+kind create cluster --name multi-node-cluster --config cluster.yaml
+
+-------
+
+If you want to switch between clusters, use the following command
+
+    kubectl config get-contexts
+    kubectl config use-context kind-multi-node-cluster
