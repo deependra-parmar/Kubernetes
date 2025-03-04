@@ -6,3 +6,4 @@ k create deploy nginx-demo --image=nginx -n demo
 k get deploy -n demo
 
 Fully Qualified Domain Names are for communication of services across namespaces.
+For getting the FQDN, exec into a pod in the current namespace and cat /etc/resolv.conf. This configuration file has the FQDN.

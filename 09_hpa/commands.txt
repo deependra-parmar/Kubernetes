@@ -1,0 +1,24 @@
+Horizontal Pod Autoscaling: Adds identical pods in the cluster whenever the load or traffic increases.
+SCALE-OUT or SCALE-IN
+
+For Workload(pod): HPA
+For Infra(node): Cluster Autoscaler
+
+-------------
+
+Vertical Pod Autoscaling: Resize/replace the same pod and increase the memory, cpu.
+SCALE-UP and SCALE-DOWN
+
+For Workload(pod): VPA
+For Infra(node): Node AutProvisioning
+
+----------------
+
+Event based Autoscaling: KEDA, on errors, rejection.
+Cron/Schedule based Autoscaling
+
+    kubectl autoscale deploy nginx-dep --cpu-percent=60 --min=3 --max=10
+
+Increasing the load on the pod
+
+    kubectl run -i --tty load-generator --rm --image=busybox:1.28 --restart=Never -- bin/sh -c "while sleep 0.01; do wget -q -O- http://nginx-dep; done" : not working in my system
