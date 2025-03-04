@@ -1,0 +1,43 @@
+Taints are single flags or key-value pairs that are assigned to node and they generally repel the pods which can't tolerate the taint.
+
+Tolerations, assigned to pods, are used to tolerate the taint.
+If a pod has the toleration so, it can tolerate the taint thus get scheduled on the node.
+
+Toleration has effects: 
+    1. noSchedule: for newer pods and not existing pods
+    2. noExecute: for all existing and newer pods
+    3. preferNoSchedule: no guarantee of scheduling
+
+----------------
+
+Tainting a node: 
+
+    kubectl taint node my-cluster-worker gpu=true:NoSchedule
+
+    kubectl describe node my-cluster-worker | grep Taints
+
+---------------
+
+Now, whenever we'll create a new pod, it will stuck in pending state as it lacks toleration to tolerate the taint
+
+    k run nginx --image=nginx
+    k get pods
+
+---------------
+
+Adding toleration to nginx pod with gpu=true
+
+    refer toleration.yaml
+    and then apply it
+
+----------------
+
+Now, the nginx is still in pending so, let's delete the taint from worker2.
+
+    kubectl taint node my-cluster-worker2 gpu-
+
+and then, the nginx pod will be scheduled on worker2 node.
+
+------------------
+
+Since, taints and tolerations doesn't guarantee pod scheduling as they repel and reject the pods. In order to ensure that pods are scheduled, we provide the deci
