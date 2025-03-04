@@ -1,0 +1,8 @@
+kubectl get all --namespace=kube-system
+kubectl get all -n kube-system
+
+kubectl create ns demo
+k create deploy nginx-demo --image=nginx -n demo
+k get deploy -n demo
+
+Fully Qualified Domain Names are for communication of services across namespaces.
