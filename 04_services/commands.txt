@@ -1,0 +1,10 @@
+Service is used to expose the application at different levels and extents. Services help us to connect and establish communication between different running pods.
+
+Types: clusterIP, NodePort, Loadbalancer, etc.
+
+targetPort: port on which the application is listening in the pods
+nodePort: port of clusterIP on which application is exposed
+port: internal port for service
+
+----------------------
+

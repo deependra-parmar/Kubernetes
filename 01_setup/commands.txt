@@ -11,8 +11,7 @@ Deleting a cluster
 ---------
 
 Creating a cluster with multi-node support using cluster.yaml
-
-kind create cluster --name multi-node-cluster --config cluster.yaml
+kind create cluster --name multi-
 
 -------
 
