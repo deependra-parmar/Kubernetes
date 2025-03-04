@@ -1,0 +1,25 @@
+If we want to add existing and running pods in the replicaset, we can use selector to select them
+
+-------------
+
+For changing the number of pods in replicaset, we can use local manifest and apply changes or edit the replicaset and update the live config.
+
+    kubectl edit rs replica-set/nginx-rs
+    kubectl scale --replicas=10 rs/nginx-rs
+
+---------------
+
+Deployments are wrapper on the top of RelicaSet which brings a lot of advantage. Whenever you want to rollout a new update, ReplicaSet will delete all the pod and create all of them at once but Deployment will do it one by one and traffic being served from the other pods concurrently.
+
+    kubectl set image deploy/nginx-dep \
+    nginx=nginx:1.9.1
+
+    kubectl rollout history deploy/nginx-dep
+
+    kubectl rollout undo deploy/nginx-dep
+
+-------------
+
+Getting template of yaml for Deployment
+
+    kubectl create deploy deploy/nginx-new --image=nginx:latest --dry-run=client -o yaml > deployTemplate.yaml
