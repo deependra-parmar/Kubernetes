@@ -1,0 +1,4 @@
+Secrets are similar to configMaps but are specifically used for storing confidential data like password, api keys, etc. Secrets are stored in unencrypted format in etcd so, anyone with access to API can access or modify the secrets.
+
+POD.YAML ------> SECRETS in the form of ENV
+POD2.YAML -----> SECRETS ref from Secret
