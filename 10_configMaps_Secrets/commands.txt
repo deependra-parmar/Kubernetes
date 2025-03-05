@@ -1,0 +1,23 @@
+Environments can be passed directly in the yaml in spec.containers.env but when the application grows and you need to use the env's repeatedly, seperation of concern is important.
+
+Values of configMap variables can be changed but you need to force the operation.
+
+---------------------
+
+POD.YAML ----> DIFFERENT ENV's INDIVIDUALLY
+POD2.YAML ---> GIVING REFERENCE OF configMap
+
+--------------------
+
+Imperative creation of configmap
+
+    kubectl create cm <name_of_CM> --from-literal=firstname=deependra \ --from-literal=lastname=parmar
+
+-------------
+
+Declarative way of creating a configmap
+
+    refer to configMap.yaml
+
+-------------
+

@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod
+spec:
+  containers:
+  - image: nginx:latest
+    name: nginx-container
+    resources: {}
+    env: 
+      - name: FIRSTNAME
+        valueFrom:
+          configMapKeyRef:
+            name: nginx-cm
+            key: firstname
+      - name: LASTNAME
+        valueFrom:
+          configMapKeyRef:
+            name: nginx-cm
+            key: lastname
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
