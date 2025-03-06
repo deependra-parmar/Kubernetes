@@ -1,0 +1,37 @@
+```
+kind create cluster --config <file>
+```
+
+```
+kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.14.9/config/manifests/metallb-native.yaml
+```
+
+```
+kubectl apply -f <metallb-config>
+```
+
+```
+helm install ingress-nginx ingress-nginx/ingress-nginx --namespace ingress-nginx --create-namespace
+```
+
+// getting the IP of the docker network
+
+docker inspect network kind ------> gettting the IP of the Kind network
+
+
+-------------------------
+
+Full process: 
+
+1. Get deployment ready
+2. Get services ready
+3. Create an ingress with kong. Use help-chart for getting all kong controllers and proxy.
+4. Configure metallb for local LoadBalancer IP
+5. docker inspect network kind ----> get IPv4 Address
+6. Configure the range in metallb for IP of load LoadBalancer
+7. Now, run kubectl get ingress
+8. Now, you'll get an address of ingress
+9. run a mozilla docker image with --network kind
+10. Exec into the mozilla docker image and edit /etc/hosts and map IP of ingress with host configured in ingress
+11. Save everything: Open localhost:5800 ---> running mozilla browser on web
+12. Make a request like backend.local
