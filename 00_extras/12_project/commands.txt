@@ -1,0 +1,11 @@
+Adding kong using helm: 
+
+    helm repo add kong https://charts.konghq.com
+    helm repo update
+    helm install kong kong/kong --set ingressController.installCRDs=false
+
+-------------------
+
+Since, we are using kind, we need to port forward so, 
+
+    kubectl port-forward svc/kong-kong-proxy 8000:80 8001:443

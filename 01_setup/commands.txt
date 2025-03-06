@@ -19,3 +19,15 @@ If you want to switch between clusters, use the following command
 
     kubectl config get-contexts
     kubectl config use-context kind-multi-node-cluster
+
+---------------
+
+Creating a cluster from yaml file
+
+    kind create cluster --name my-cluster --config cluster.yaml
+
+---------------
+
+Getting ip of the cluster
+
+    docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' my-cluster-control-plane
