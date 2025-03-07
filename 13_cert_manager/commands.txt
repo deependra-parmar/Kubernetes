@@ -1,0 +1,27 @@
+k apply -f deploy1.yaml
+k apply -f deploy2.yaml
+k apply -f metallb.yaml
+k apply -f issuer.yaml
+k apply -f ingress.yaml
+
+------------
+
+Installs the cert-manager
+
+kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.7.1/cert-manager.yaml
+
+// installing the nginx-ingress-controllers
+
+helm upgrade --install ingress-nginx ingress-nginx \
+  --repo https://kubernetes.github.io/ingress-nginx \
+  --namespace ingress-nginx --create-namespace
+
+
+------------
+
+kubectl get pods --namespace cert-manager
+
+------------
+
+docker run -d -p 5800:5800 --name firefox --network kind jlesage/firefox
+
