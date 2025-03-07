@@ -1,0 +1,24 @@
+helm repo add external-secrets https://charts.external-secrets.io
+helm repo update
+helm install external-secrets external-secrets/external-secrets \
+  --namespace external-secrets --create-namespace
+
+-------------
+
+kubectl get pods -n external-secrets
+
+-------------
+
+deploy hashicorp vault in cluster
+
+helm repo add hashicorp https://helm.releases.hashicorp.com
+helm repo update
+helm install vault hashicorp/vault \
+  --set "server.dev.enabled=true"
+
+-------------
+
+enable auth in kubernetes: kubectl exec -it vault-0 -- vault auth enable kubernetes
+
+-------------
+
