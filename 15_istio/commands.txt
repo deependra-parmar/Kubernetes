@@ -1,0 +1,6 @@
+Getting started page with sample deployment and testing: Visit the page and follow all instructions to test the sample app, establish the istio service mesh and understand it.
+
+    https://istio.io/latest/docs/setup/getting-started/
+
+---------------
+
