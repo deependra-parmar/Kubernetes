@@ -1,0 +1,3 @@
+https://medium.com/@devopsrockers/automate-your-route53-record-creation-in-eks-with-external-dns-8c6fbc1b09ea#:~:text=ExternalDNS%20is%20a%20tool%20that,your%20application%20as%20it%20scales.
+
+// Above one is a good article for understanding the flow of ExternalDNS with AWS-EKS and AWS-Route53
