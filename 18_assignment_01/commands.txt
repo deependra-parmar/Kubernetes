@@ -39,4 +39,10 @@ Step 07: View the pod and deployment status
 
 Step 08: Create an ingress for your deployment
 
-    
+    Ingress config also present in deploy.yaml
+
+---------
+
+Step 09 and 10: Created a StatefulState with postgres DB and added configmap and secret for the postgres database.
+
+    config present in statefulset.yaml
