@@ -4,3 +4,9 @@ Getting started page with sample deployment and testing: Visit the page and foll
 
 ---------------
 
+k apply -f ns.yaml
+k apply -f deploy.yaml
+k apply -f gateway.yaml
+k apply -f virtual-service.yaml
+k apply -f destination.yaml
+

@@ -1,0 +1,10 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: my-app-destination
+  namespace: my-app
+spec:
+  host: my-app
+  trafficPolicy:
+    loadBalancer:
+      simple: ROUND_ROBIN

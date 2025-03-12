@@ -1,0 +1,42 @@
+Step 01 and 02: 
+
+    k apply -f deployment.yaml
+    k apply -f service.yaml
+
+---------
+
+Step 03: Access the service using browser
+
+    k port-forward svc/nginx-service 3000:80
+
+--------
+
+Step 04: Update replica size in reducing order from 3 to 0 and then set it to 1
+
+    k scale --current-replicas=3 --replicas=0 deploy/nginx-deployment
+    k scale --replicas=1 deploy/nginx-deployment
+
+--------
+
+Step 05: Enter the nginx pod and access it from there using the service
+
+    k exec -it nginx-deployment-96b9d695-mnq9m -- sh
+    curl <IP of service copied from description of service>
+
+---------
+
+Step 06: View the logs of the pod
+
+    k logs nginx-deployment-96b9d695-mnq9m
+
+---------
+
+Step 07: View the pod and deployment status
+
+    k get pods -owide
+
+---------
+
+Step 08: Create an ingress for your deployment
+
+    
